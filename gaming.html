@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Adventures - My Hobby</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+   
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+        }
+        
+        .download-btn.secondary {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+        }
+        
+        .download-btn.secondary:hover {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-icon {
+            font-size: 1.2rem;
+        }
+        
+        .back-to-sleep {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            margin-top: 2rem;
+            margin-left: 1rem;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+        }
+        
+        .back-to-sleep:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+            background: linear-gradient(135deg, #7c3aed, #c026d3);
+        }
+        
+        @media (max-width: 768px) {
+            .download-buttons {
+                flex-direction: column;
+            }
+            
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .back-to-sleep {
+                margin-left: 0;
+                margin-top: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="game-page">
+    <header>
+        <h1>Gaming Adventures</h1>
+        <p>ROV & Identity V - Strategy & Thrills</p>
+    </header>
+    
+    <nav>
+        <ul>
+          <li><a href="sleep.html">Sleeping</a></li>
+            <li><a href="gaming.html">Gaming</a></li>
+            <li><a href="index.html">Main</a></li>
+            <li><a href="watching series.html">watching series</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="rov">
+            <h2>Realm of Valor (ROV)</h2>
+            <div class="content-container">
+                <div class="text-content">
+                    <p>ROV is a mobile MOBA game that requires strategy, teamwork, and quick thinking.</p>
+                    <h3>Why I Love ROV:</h3>
+                    <ul>
+                        <li>Fast-paced 5v5 battles (15-20 minutes per match)</li>
+                        <li>Over 100 unique heroes with different roles</li>
+                        <li>Strategic gameplay with team coordination</li>
+                        <li>Regular tournaments and events</li>
+                        <li>Can play anywhere on mobile</li>
+                        <li>Active community and esports scene</li>
+                    </ul>
+                    
+                    <div class="download-buttons">
+                        <a href="https://play.google.com/store/apps/details?id=com.garena.game.kgtw" target="_blank" class="download-btn">
+                            <span class="btn-icon">📱</span>
+                            Download ROV (Google Play)
+                        </a>
+                        <a href="https://apps.apple.com/us/app/realm-of-valor/id1243055750" target="_blank" class="download-btn secondary">
+                            <span class="btn-icon">📱</span>
+                            Download ROV (App Store)
+                        </a>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="https://s.isanook.com/ga/0/ud/214/1072921/rov-1.jpg" alt="Mobile gaming">
+                </div>
+            </div>
+        </section>
+        
+        <section id="identity">
+            <h2>Identity V</h2>
+            <div class="content-container reverse">
+                <div class="image-content">
+                    <img src="https://cdn-www.bluestacks.com/bs-images/Identity-v_banner.jpg" alt="Horror game">
+                </div>
+                <div class="text-content">
+                    <p>Identity V is an asymmetric horror game with intense cat-and-mouse gameplay.</p>
+                    <h3>Game Features:</h3>
+                    <ul>
+                        <li>4 survivors vs 1 hunter gameplay</li>
+                        <li>Gothic horror aesthetic and atmosphere</li>
+                        <li>Unique character abilities and skills</li>
+                        <li>Strategy and stealth elements</li>
+                        <li>Regular crossover events with anime</li>
+                        <li>Thrilling escape mechanics</li>
+                    </ul>
+                    
+                    <div class="download-buttons">
+                        <a href="https://play.google.com/store/apps/details?id=com.netease.idv.googleplay" target="_blank" class="download-btn">
+                            <span class="btn-icon">📱</span>
+                            Download Identity V (Google Play)
+                        </a>
+                        <a href="https://apps.apple.com/us/app/identity-v/id1340352325" target="_blank" class="download-btn secondary">
+                            <span class="btn-icon">📱</span>
+                            Download Identity V (App Store)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="setup">
+            <h2>My Gaming Setup</h2>
+            <div class="balance-container">
+                <div class="balance-item">
+                    <h3>Mobile Setup</h3>
+                    <p>Smartphone with 120Hz refresh rate, gaming triggers, and cooling fan for long sessions.</p>
+                </div>
+                <div class="balance-item">
+                    <h3>Accessories</h3>
+                    <p>Comfortable headphones, power bank, ergonomic phone grip, and blue light filter glasses.</p>
+                </div>
+                <div class="balance-item">
+                    <h3>Environment</h3>
+                    <p>Comfortable chair, good lighting, stable internet connection, and minimal distractions.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="tips">
+            <h2>Gaming Tips</h2>
+            <div class="content-container">
+                <div class="text-content">
+                    <h3>For Better Gaming:</h3>
+                    <ul>
+                        <li><strong>Take breaks</strong> - 5-10 minutes every hour</li>
+                        <li><strong>Stay hydrated</strong> - Keep water nearby</li>
+                        <li><strong>Good posture</strong> - Sit properly to avoid back pain</li>
+                        <li><strong>Team communication</strong> - Use voice chat effectively</li>
+                        <li><strong>Learn from mistakes</strong> - Watch replays to improve</li>
+                        <li><strong>Set time limits</strong> - Balance gaming with other activities</li>
+                    </ul>
+                    
+                    <div>
+                        <a href="index.html" class="back-button">← Back to Main Page</a>
+                        <a href="sleep.html" class="back-to-sleep">💤 Check Sleep Tips</a>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="https://www.shutterstock.com/editorial/image-editorial/ObTdMf23M2jfA8z7NTE2MA==/thai-gamers-compete-garena-rov-moba-multi-player-440nw-9294778d.jpg" alt="Gaming setup">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Created with the help of Copilot | Gaming Adventures</p>
+    </footer>
+</body>
+</html>
