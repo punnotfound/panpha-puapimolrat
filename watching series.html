@@ -3,40 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Adventures - My Hobby</title>
-    <link rel="stylesheet" href="styles.css">
-  
+    <title>Watching Series - My Hobby</title>
+    <style>
+        /* === Same styling as main page === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background: #f6f4f0;
+            color: #1e2b2f;
+            line-height: 1.5;
+            padding: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: #2c3e4e;
+            color: white;
+            padding: 2rem 2rem 1.5rem;
+            border-radius: 30px 30px 0 0;
+            text-align: center;
+            box-shadow: 0 8px 12px rgba(0,0,0,0.05);
+        }
+        
+        header h1 {
+            font-size: 2.7rem;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        nav {
+            background: #3e5a6b;
+            padding: 0.7rem 2rem;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 8px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 40px;
+            transition: 0.2s;
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        nav a:hover {
+            background-color: #f0d3b0;
+            color: #1e2b2f;
+        }
+
+        main {
+            background: white;
+            border-radius: 40px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+            min-height: 500px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            border-left: 10px solid #d49b6a;
+            padding-left: 1.3rem;
+            margin-bottom: 2rem;
+            color: #2c3e4e;
+        }
+
+        .video-container {
+            background: #fefcf8;
+            border-radius: 40px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .video-wrapper {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 12px 20px -8px rgba(0,0,0,0.2);
+        }
+        
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .video-title {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            color: #b36b4a;
+            font-weight: 600;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hobby-button {
+            display: inline-block;
+            background: #d49b6a;
+            color: #1e2b2f;
+            font-weight: 700;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: 1px solid transparent;
+            transition: 0.2s;
+            box-shadow: 0 5px 0 #8b5a3a;
+        }
+        
+        .hobby-button:hover {
+            background: #e5b488;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 0 #8b5a3a;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: #3e5a6b;
+            font-weight: 500;
+        }
+
+        @media (max-width: 750px) {
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
-<body class="game-page">
+<body>
     <header>
-        <h1>Watching series</h1>
-        <p>Sotus the series</p>
+        <h1>Watching Series</h1>
+        <p>Sotus the Series</p>
     </header>
     
     <nav>
         <ul>
-          <li><a href="sleep.html">Sleeping</a></li>
+            <li><a href="sleep.html">Sleeping</a></li>
             <li><a href="gaming.html">Gaming</a></li>
             <li><a href="index.html">Main</a></li>
-             <li><a href="watching series.html">watching series</a></li>
+            <li><a href="watching-series.html">Watching series</a></li>
         </ul>
     </nav>
     
     <main>
-         <div class="media-box">
-        <h3>Series that i have been watching</h3>
-        <video controls style="width: 100%; border-radius: 8px;">
-            <source src="video/sotus.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="info">
-            <strong>Name:</strong> Sotus the series
-        </div>
+        <h2>Currently Watching</h2>
         
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="video/sotus.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-title">Sotus the Series</div>
+            
+            <div class="nav-buttons">
+                <a href="index.html" class="hobby-button">← Back to Main</a>
+                <a href="sleep.html" class="hobby-button">💤 Sleep</a>
+                <a href="gaming.html" class="hobby-button">🎮 Gaming</a>
+            </div>
+        </div>
     </main>
     
     <footer>
-        <p>Created with the help of Copilot | Gaming Adventures</p>
+        <p>Created with the help of Copilot | Watching Series</p>
     </footer>
 </body>
 </html>

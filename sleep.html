@@ -4,9 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Art of Sleeping - My Hobby</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* === Same styling as main page === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background: #f6f4f0;
+            color: #1e2b2f;
+            line-height: 1.5;
+            padding: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: #2c3e4e;
+            color: white;
+            padding: 2rem 2rem 1.5rem;
+            border-radius: 30px 30px 0 0;
+            text-align: center;
+            box-shadow: 0 8px 12px rgba(0,0,0,0.05);
+        }
+        
+        header h1 {
+            font-size: 2.7rem;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        nav {
+            background: #3e5a6b;
+            padding: 0.7rem 2rem;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 8px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 40px;
+            transition: 0.2s;
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        nav a:hover {
+            background-color: #f0d3b0;
+            color: #1e2b2f;
+        }
+
+        main {
+            background: white;
+            border-radius: 40px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            border-left: 10px solid #d49b6a;
+            padding-left: 1.3rem;
+            margin-bottom: 2rem;
+            color: #2c3e4e;
+        }
+
+        .content-container {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            background: #fefcf8;
+            border-radius: 40px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        
+        .reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .text-content {
+            flex: 1 1 55%;
+        }
+        
+        .image-content {
+            flex: 1 1 40%;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 12px 20px -8px rgba(0,0,0,0.2);
+        }
+        
+        .image-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+        
+        .image-content img:hover {
+            transform: scale(1.02);
+        }
+        
+        .text-content h3 {
+            font-size: 1.8rem;
+            color: #b36b4a;
+            margin: 0.8rem 0 0.5rem;
+        }
+        
+        .text-content ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            font-size: 1.15rem;
+        }
+        
+        .text-content li {
+            margin: 0.4rem 0;
+        }
+
+        .balance-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+        
+        .balance-item {
+            flex: 1 1 200px;
+            background: #e7f0f2;
+            padding: 1.8rem 1.2rem;
+            border-radius: 40px;
+            text-align: center;
+            box-shadow: inset 0 -2px 0 white, 0 12px 15px -10px #3e5a6b;
+        }
+        
+        .balance-item h3 {
+            color: #2c3e4e;
+            font-size: 1.7rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .hobby-button {
+            display: inline-block;
+            background: #d49b6a;
+            color: #1e2b2f;
+            font-weight: 700;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: 1px solid transparent;
+            transition: 0.2s;
+            box-shadow: 0 5px 0 #8b5a3a;
+            margin-top: 1rem;
+        }
+        
+        .hobby-button:hover {
+            background: #e5b488;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 0 #8b5a3a;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: #3e5a6b;
+            font-weight: 500;
+        }
+
+        @media (max-width: 750px) {
+            .content-container, .reverse {
+                flex-direction: column;
+            }
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
-<body class="sleep-page">
+<body>
     <header>
         <h1>The Art of Sleeping</h1>
         <p>Mastering Rest & Recovery</p>
@@ -17,7 +216,7 @@
             <li><a href="sleep.html">Sleeping</a></li>
             <li><a href="gaming.html">Gaming</a></li>
             <li><a href="index.html">Main</a></li>
-             <li><a href="watching series.html">watching series</a></li>
+            <li><a href="watching-series.html">Watching series</a></li>
         </ul>
     </nav>
     
@@ -35,9 +234,11 @@
                         <li>Supports physical recovery</li>
                         <li>Increases energy and focus</li>
                     </ul>
+                    <a href="index.html" class="hobby-button">← Back to Main</a>
+                    <a href="gaming.html" class="hobby-button" style="margin-left: 1rem;">🎮 Gaming Page</a>
                 </div>
                 <div class="image-content">
-                    <img src="J.jpg" alt="Peaceful sleeping">
+                    <img src="J.jpg" alt="Peaceful sleeping environment">
                 </div>
             </div>
         </section>
@@ -46,7 +247,7 @@
             <h2>My Sleep Tips</h2>
             <div class="content-container reverse">
                 <div class="image-content">
-                    <img src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Comfortable bed">
+                    <img src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Comfortable bed with pillows">
                 </div>
                 <div class="text-content">
                     <h3>For Better Sleep:</h3>

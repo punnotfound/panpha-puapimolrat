@@ -3,25 +3,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Favorite Hobbies - Sleeping & Gaming</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>My Favorite Hobbies · sleep, game, watch · plus guess game</title>
+    <!-- ========== EXTERNAL STYLESHEET (embedded for single-file demo, but follows external concept) ========== -->
+    <style>
+        /* === consistent theme, colors, spacing, flexbox/grid layout === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background: #f6f4f0;
+            color: #1e2b2f;
+            line-height: 1.5;
+            padding: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* header / nav / footer */
+        header {
+            background: #2c3e4e;
+            color: white;
+            padding: 2rem 2rem 1.5rem;
+            border-radius: 30px 30px 0 0;
+            text-align: center;
+            box-shadow: 0 8px 12px rgba(0,0,0,0.05);
+        }
+        header h1 {
+            font-size: 2.7rem;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        nav {
+            background: #3e5a6b;
+            padding: 0.7rem 2rem;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 8px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 40px;
+            transition: 0.2s;
+            background-color: rgba(255,255,255,0.1);
+        }
+        nav a:hover {
+            background-color: #f0d3b0;
+            color: #1e2b2f;
+        }
+
+        main {
+            background: white;
+            border-radius: 40px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+            scroll-margin-top: 1rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            border-left: 10px solid #d49b6a;
+            padding-left: 1.3rem;
+            margin-bottom: 2rem;
+            color: #2c3e4e;
+        }
+
+        /* content layout – flex, reverse, responsive */
+        .content-container {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            background: #fefcf8;
+            border-radius: 40px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .reverse {
+            flex-direction: row-reverse;
+        }
+        .text-content {
+            flex: 1 1 55%;
+        }
+        .image-content {
+            flex: 1 1 40%;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 12px 20px -8px rgba(0,0,0,0.2);
+        }
+        .image-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .image-content img:hover {
+            transform: scale(1.02);
+        }
+        .text-content h3 {
+            font-size: 1.8rem;
+            color: #b36b4a;
+            margin: 0.8rem 0 0.5rem;
+        }
+        .text-content ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            font-size: 1.15rem;
+        }
+        .text-content li {
+            margin: 0.4rem 0;
+        }
+
+        .hobby-button {
+            display: inline-block;
+            background: #d49b6a;
+            color: #1e2b2f;
+            font-weight: 700;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: 1px solid transparent;
+            transition: 0.2s;
+            box-shadow: 0 5px 0 #8b5a3a;
+        }
+        .hobby-button:hover {
+            background: #e5b488;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 0 #8b5a3a;
+        }
+
+        /* balance grid (flex) */
+        .balance-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+        .balance-item {
+            flex: 1 1 200px;
+            background: #e7f0f2;
+            padding: 1.8rem 1.2rem;
+            border-radius: 40px;
+            text-align: center;
+            box-shadow: inset 0 -2px 0 white, 0 12px 15px -10px #3e5a6b;
+        }
+        .balance-item h3 {
+            color: #2c3e4e;
+            font-size: 1.7rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* improved table (zebra striping, header/footer) - NO rating column */
+        .series-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.8rem 0 1rem;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .series-table thead {
+            background: #2c3e4e;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .series-table th, .series-table td {
+            padding: 1rem 1.2rem;
+            text-align: left;
+        }
+        .series-table tbody tr:nth-child(even) {
+            background: #f9f3ea;
+        }
+        .series-table tbody tr:nth-child(odd) {
+            background: #ffffff;
+        }
+        .series-table tfoot {
+            background: #d9cfc1;
+            font-weight: 600;
+        }
+        .series-table tfoot td {
+            padding: 0.8rem 1.2rem;
+        }
+        .series-caption {
+            font-weight: 500;
+            color: #3e5a6b;
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+
+        /* ===== mini‑game area (styled to match theme) ===== */
+        .game-section {
+            background: linear-gradient(145deg, #d4c9bc, #efe7db);
+            border-radius: 60px;
+            padding: 2.5rem 2rem;
+            margin-top: 2rem;
+            border: 4px solid #b4a08b;
+        }
+        .game-container {
+            background: #2c3e4e;
+            border-radius: 50px;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            box-shadow: inset 0 -5px 0 #15262e, 0 15px 20px rgba(0,0,0,0.2);
+        }
+        .game-container h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #fadfbb;
+        }
+        .game-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0 1rem;
+        }
+        .game-input {
+            padding: 1rem 1.8rem;
+            font-size: 1.8rem;
+            width: 150px;
+            text-align: center;
+            border-radius: 50px;
+            border: none;
+            background: #fffae8;
+            font-weight: 700;
+        }
+        .game-btn {
+            background: #d49b6a;
+            border: none;
+            font-size: 1.6rem;
+            font-weight: bold;
+            padding: 1rem 2.2rem;
+            border-radius: 60px;
+            cursor: pointer;
+            color: #1e2b2f;
+            box-shadow: 0 7px 0 #7b583b;
+            transition: 0.1s ease;
+        }
+        .game-btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 2px 0 #7b583b;
+        }
+        .game-feedback {
+            font-size: 1.8rem;
+            background: #1f313b;
+            padding: 1.2rem;
+            border-radius: 60px;
+            margin: 1.5rem 0 0.5rem;
+            border: 2px solid #c9b393;
+        }
+        .attempt-history {
+            font-size: 1.2rem;
+            background: #102127;
+            padding: 0.8rem;
+            border-radius: 40px;
+            max-width: 400px;
+            margin: 1rem auto;
+        }
+        .reset-link {
+            color: #fadfbb;
+            text-decoration: underline dotted;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: #3e5a6b;
+            font-weight: 500;
+        }
+        /* alt & accessible: all images have alt */
+        /* responsive */
+        @media (max-width: 750px) {
+            .content-container, .reverse {
+                flex-direction: column;
+            }
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>My Favorite Hobbies</h1>
-        <p>Sleeping & Gaming (ROV & Identity V)</p>
+        <p>Sleeping · Gaming (ROV & Identity V) · Watching Series</p>
     </header>
     
-    <nav>
+    <nav aria-label="Main navigation">
         <ul>
             <li><a href="sleep.html">Sleeping</a></li>
             <li><a href="gaming.html">Gaming</a></li>
             <li><a href="index.html">Main</a></li>
-            <li><a href="watching series.html">watching series</a></li>
+            <li><a href="watching series.html">Watching series</a></li>
         </ul>
     </nav>
     
     <main>
+        <!-- Sleeping section (improved with image alt) -->
         <section id="sleeping">
             <h2>The Art of Sleeping</h2>
             <div class="content-container">
@@ -34,19 +342,20 @@
                         <li>Consistent sleep schedule</li>
                         <li>No screens before bedtime</li>
                     </ul>
-                    <a href="sleep.html" class="hobby-button">Explore Sleep Tips →</a>
+                    <a href="sleep.html" class="hobby-button" aria-label="Explore sleep tips">Explore Sleep Tips →</a>
                 </div>
                 <div class="image-content">
-                    <img src="J.jpg" alt="Peaceful sleeping">
+                    <img src="J.jpg" alt="Peaceful sleeping environment with cozy blankets and dim light">
                 </div>
             </div>
         </section>
         
+        <!-- Gaming section -->
         <section id="gaming">
             <h2>Gaming Adventures</h2>
             <div class="content-container reverse">
                 <div class="image-content">
-                    <img src="jj.jpg" alt="Gaming setup">
+                    <img src="jj.jpg" alt="Gaming setup with two monitors and gaming peripherals">
                 </div>
                 <div class="text-content">
                     <p>When I'm not sleeping, I'm diving into the exciting worlds of ROV (Realm of Valor) and Identity V.</p>
@@ -62,14 +371,46 @@
             </div>
         </section>
         
-        <section id="watching series">
-          <h2> Watching Series</h2>
-            <div class="content-container">
-                <div class="watching series"
+        <!-- ========== IMPROVED SECTION: WATCHING SERIES with table (NO RATING COLUMN) ========= -->
+        <section id="watching-series">
+            <h2>Watching Series</h2>
+            <div class="content-container" style="flex-direction: column; align-items: stretch;">
+                <!-- descriptive text + multimedia (image) -->
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
+                    <div style="flex:1; min-width:200px;">
+                        <img src="https://placehold.co/400x300/3e5a6b/white?text=Binge+Mode" alt="Watching series on a tablet with snacks" style="width:100%; border-radius:40px;">
+                        <p style="text-align:center; margin-top:0.5rem;"><small>📺 weekend marathon</small></p>
+                    </div>
+                    <div style="flex:2">
+                        <p>From thrilling K-dramas to sci-fi, I keep a balanced watchlist. Below are my recent favorites.</p>
+                    </div>
+                </div>
+
+                <!-- IMPROVED TABLE: header, footer, zebra striping - NO RATING COLUMN -->
+                <table class="series-table">
+                    <caption class="series-caption">My recent watchlist (updated monthly)</caption>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Genre</th>
+                            <th>Seasons</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>The Silent Sea</td><td>Sci-fi / thriller</td><td>1</td></tr>
+                        <tr><td>Wednesday</td><td>Fantasy / comedy</td><td>1</td></tr>
+                        <tr><td>Dark</td><td>Mystery</td><td>3</td></tr>
+                        <tr><td>Alice in Borderland</td><td>Survival / drama</td><td>2</td></tr>
+                        <tr><td>Our Beloved Summer</td><td>Romance</td><td>1</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr><td colspan="3">✨ total 5 series · always open to recommendations ✨</td></tr>
+                    </tfoot>
+                </table>
             </div>
         </section>
 
-        
+        <!-- balance section (unchanged, but nice) -->
         <section id="balance">
             <h2>Finding the Balance</h2>
             <div class="balance-container">
@@ -87,11 +428,137 @@
                 </div>
             </div>
         </section>
-       
+
+        <!-- ========== ORIGINAL JAVASCRIPT MINI-GAME (embedded, styled to match) ========= -->
+        <section id="mini-game" class="game-section">
+            <h2 style="border-left-color:#a56534; color:#2c3e4e;">🎮 midnight guesser · mini-game</h2>
+            <div class="game-container">
+                <h3>🔢 NUMBER GUESSER</h3>
+                <p style="font-size:1.4rem; opacity:0.9;">Guess a number between 1 and 50</p>
+                <div class="game-flex">
+                    <input type="number" id="guessInput" class="game-input" placeholder="?" min="1" max="50" value="">
+                    <button class="game-btn" id="guessBtn">GUESS</button>
+                </div>
+                <div id="gameFeedback" class="game-feedback">✨ type a number and start</div>
+                <div id="attemptHistory" class="attempt-history">📋 attempts: none</div>
+                <a id="resetGame" class="reset-link">🔄 new game (reset)</a>
+            </div>
+        </section>
     </main>
     
     <footer>
-        <p>Created with the help of Copilot | My Favorite Hobbies</p>
+        <p>Created with the help of Copilot | My Favorite Hobbies · upgraded with table and javascript mini‑game</p>
+        <p style="font-size:0.9rem;">All images have descriptive alt attributes</p>
     </footer>
+
+    <!-- ========== JavaScript for mini-game (original, inside site) ========= -->
+    <script>
+        (function() {
+            // ---- number guesser game ----
+            let secretNumber = Math.floor(Math.random() * 50) + 1;   // 1-50
+            let attempts = [];
+            const maxAttempts = 15;   // generous
+
+            const guessInput = document.getElementById('guessInput');
+            const guessBtn = document.getElementById('guessBtn');
+            const gameFeedback = document.getElementById('gameFeedback');
+            const attemptHistory = document.getElementById('attemptHistory');
+            const resetLink = document.getElementById('resetGame');
+
+            // helper to update history display
+            function updateHistory(message) {
+                if (attempts.length === 0) {
+                    attemptHistory.innerText = '📋 attempts: none';
+                } else {
+                    attemptHistory.innerText = '📋 attempts: ' + attempts.join(' · ');
+                }
+                if (message) gameFeedback.innerText = message;
+            }
+
+            // reset function
+            function resetGame() {
+                secretNumber = Math.floor(Math.random() * 50) + 1;
+                attempts = [];
+                guessInput.value = '';
+                gameFeedback.innerText = '✨ new game! guess 1–50';
+                attemptHistory.innerText = '📋 attempts: none';
+                guessInput.disabled = false;
+                guessBtn.disabled = false;
+                guessInput.focus();
+            }
+
+            // guess logic
+            function handleGuess() {
+                const rawValue = guessInput.value.trim();
+                if (rawValue === '') {
+                    gameFeedback.innerText = '⚠️ enter a number first';
+                    return;
+                }
+                const guess = Number(rawValue);
+                if (isNaN(guess) || !Number.isInteger(guess) || guess < 1 || guess > 50) {
+                    gameFeedback.innerText = '❌ invalid (must be whole 1–50)';
+                    guessInput.value = '';
+                    return;
+                }
+
+                // check duplicate (just for fun)
+                if (attempts.includes(guess)) {
+                    gameFeedback.innerText = '⏳ you already tried ' + guess + '! pick another.';
+                    guessInput.value = '';
+                    return;
+                }
+
+                // record attempt
+                attempts.push(guess);
+                let feedbackMsg = '';
+
+                if (guess === secretNumber) {
+                    feedbackMsg = `🎉🎉 CORRECT! ${secretNumber} is the number! You won in ${attempts.length} tries.`;
+                    gameFeedback.innerText = feedbackMsg;
+                    attemptHistory.innerText = '📋 attempts: ' + attempts.join(' · ') + '  ✅ WIN';
+                    guessInput.disabled = true;
+                    guessBtn.disabled = true;
+                    return;
+                } else {
+                    // give hint
+                    if (guess < secretNumber) {
+                        feedbackMsg = `🔺 ${guess} is too LOW · try higher`;
+                    } else {
+                        feedbackMsg = `🔻 ${guess} is too HIGH · try lower`;
+                    }
+                }
+
+                // check max attempts (without success)
+                if (attempts.length >= maxAttempts) {
+                    feedbackMsg = `😓 out of attempts! the number was ${secretNumber}. · reset game`;
+                    gameFeedback.innerText = feedbackMsg;
+                    attemptHistory.innerText = '📋 attempts: ' + attempts.join(' · ') + '  ❌ limit reached';
+                    guessInput.disabled = true;
+                    guessBtn.disabled = true;
+                } else {
+                    gameFeedback.innerText = feedbackMsg;
+                    attemptHistory.innerText = '📋 attempts: ' + attempts.join(' · ');
+                }
+
+                guessInput.value = '';  // clear for next guess
+                guessInput.focus();
+            }
+
+            // event listeners
+            guessBtn.addEventListener('click', handleGuess);
+            guessInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleGuess();
+                }
+            });
+            resetLink.addEventListener('click', resetGame);
+
+            // optional: focus input at start
+            window.addEventListener('load', function() {
+                guessInput.focus();
+            });
+        })();
+    </script>
 </body>
 </html>
